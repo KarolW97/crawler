@@ -1,0 +1,126 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'crawler/css/styles.css' %}">
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <title>Crawler</title>
+    {% bootstrap_css %}
+
+</head>
+<body>
+<style>
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	border: none;
+
+}</style>
+<table cellspacing="0" class="table table-dark" id="dtBasicExample" width="100%">
+    <thead>
+    <tr>
+
+        <th class="th-sm">Nazwa
+        </th>
+        <th class="th-sm">Miasto
+        </th>
+        <th class="th-sm">Data Dodania
+        </th>
+        <th class="th-sm">&nbsp;Link
+        </th>
+        <th scope="col">Kontakt
+        </th>
+        <th class="th-sm">Folder
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for p in pracodawcy %}
+
+        <td>{{ p.nazwa }}</td>
+        <td>{{ p.adres }}</td>
+        <td>{{ p.data_dodania }}</td>
+        <td>
+
+
+
+        <a href="{{p.link}}">
+            <button type='submit' value='link' class='' name='link'><img
+                    src="{% static 'crawler/linkpurple.png' %}"/>
+            </button>
+            </a>
+
+
+
+        </td>
+        <td>
+            {% if p.kontakt == 1 %}
+            {% load staticfiles %}
+
+            <a href="{% url 'kontakt_update' %}?id={{ p.id }}">
+            <button type='submit' value='folder1' class='' name='kontakt1'>&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'crawler/checked.png' %}"/>
+            </button>
+
+
+            </a>
+
+            {% else %}
+
+           <a href="{% url 'kontakt_update' %}?id={{ p.id }}">
+            <button type='submit' value='folder1' class='' name='kontakt1'>&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'crawler/no.png' %}"/>
+            </button>
+             </a>
+            {% endif %}
+
+        </td>
+        <td>
+
+            {% if p.folder == 1 %}
+            {% load staticfiles %}
+            <a href="{% url 'folder_update' %}?id={{ p.id }}">
+            <button type='submit' value='folder1' class='' name='folder1'><img
+                    src="{% static 'crawler/folder-green-unlocked-icon.png' %}"/>
+            </button>
+            </a>
+
+            {% else %}
+            <a href="{% url 'folder_update' %}?id={{ p.id}} ">
+            <button type='submit' class='unstyled-button' name='folder2'><img
+                    src="{% static 'crawler/folder-red-locked-icon.png' %}">
+            </button>
+            </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tr>
+    </tbody>
+</table>
+
+{% if is_paginated %}
+  <nav aria-label="Page navigation conatiner"></nav>
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+    {% endif %}
+  </ul>
+  </nav>
+</div>
+{% endif %}
+
+</body>
+</html>
+
