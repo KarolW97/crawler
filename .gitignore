@@ -22,13 +22,14 @@ media
 .idea/**/uiDesigner.xml
 .idea/**/gradle.xml
 .idea/**/libraries
+.idea
 *.iws /out/
 
 # Python #
 *.py[cod]
 *$py.class
 
-# Distribution / packaging 
+# Distribution / packaging
 .Python build/
 develop-eggs/
 dist/
