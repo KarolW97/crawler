@@ -17,11 +17,11 @@ def folder_update(request):
 
 
 def post_list(request):
-    pracodawcy_list = Pracodawcy.objects.all()
+    pracodawcy_list = Pracodawcy.objects.all().order_by('-data_dodania')
     return render(request, 'html/index.html', {'pracodawcy': pracodawcy_list})
 
 
-def kontakt_update(request):
+def contact_update(request):
     if request.GET.get('id'):
         i = request.GET['id']
         obj = Pracodawcy.objects.get(pk=i)
@@ -31,13 +31,6 @@ def kontakt_update(request):
             obj.kontakt = 0
         obj.save()
     return redirect("html/index.html")
-
-
-class PostList(generic.ListView):
-    queryset = Pracodawcy.objects.filter(id=1).order_by('id')
-    template_name = "html/index.html"
-    paginate_by = 3
-
 
 class PostDetail(generic.DetailView):
     model = Pracodawcy

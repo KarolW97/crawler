@@ -5,7 +5,7 @@ app_name = 'crawler'
 
 urlpatterns = [
 path('folder_update', views.folder_update, name='folder_update'),
-path('kontakt_update',views.kontakt_update,name='kontakt_update'),
+path('contact_update',views.contact_update,name='contact_update'),
 
 
     path('', views.post_list, name='html/index.html'),]

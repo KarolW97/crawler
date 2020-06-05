@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7ia@6o=-l=ysyx%=c(7wy)z9e4tl#7cmdcezlryc^943w4oi)^'
+SECRET_KEY = os.environ['SECRET_KEY'],
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,8 +82,8 @@ DATABASES = {
 'default': {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': os.environ['CRAWLER_DB'],
-    'USER': 'crawler',
-    'PASSWORD': '',
+    'USER': os.environ['CRAWLER_USER'],
+    'PASSWORD': os.environ['CRAWLER_UPASSWORD'],
     'HOST': os.environ['HOST'],
     'PORT':'3306'
   }
@@ -132,9 +132,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-if 'test' in sys.argv:
-    DEBUG = True
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase'
-    }

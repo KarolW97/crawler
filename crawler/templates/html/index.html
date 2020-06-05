@@ -26,32 +26,32 @@ button, input[type="submit"], input[type="reset"] {
     <thead>
     <tr>
 
-        <th class="th-sm">Nazwa
+        <th width="25%" class="th-sm">Nazwa
         </th>
-        <th class="th-sm">Miasto
+        <th width="20%" class="th-sm">Miasto
         </th>
         <th class="th-sm">Data Dodania
         </th>
-        <th class="th-sm">&nbsp;Link
+        <th  class="th-sm">&nbsp;Link
         </th>
-        <th scope="col">Kontakt
+        <th  class="th-sm">Kontakt
         </th>
-        <th class="th-sm">Folder
+        <th  class="th-sm">Folder
         </th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        {% for p in pracodawcy %}
+        {% for employer in pracodawcy %}
 
-        <td>{{ p.nazwa }}</td>
-        <td>{{ p.adres }}</td>
-        <td>{{ p.data_dodania }}</td>
+        <td>{{ employer.nazwa }}</td>
+        <td>{{ employer.adres }}</td>
+        <td>{{ employer.data_dodania }}</td>
         <td>
 
 
 
-        <a href="{{p.link}}">
+        <a href="{{employer.link}}">
             <button type='submit' value='link' class='' name='link'><img
                     src="{% static 'crawler/linkpurple.png' %}"/>
             </button>
@@ -61,10 +61,10 @@ button, input[type="submit"], input[type="reset"] {
 
         </td>
         <td>
-            {% if p.kontakt == 1 %}
+            {% if employer.kontakt == 1 %}
             {% load staticfiles %}
 
-            <a href="{% url 'kontakt_update' %}?id={{ p.id }}">
+            <a href="{% url 'contact_update' %}?id={{ employer.id }}">
             <button type='submit' value='folder1' class='' name='kontakt1'>&nbsp;&nbsp;&nbsp;<img
                     src="{% static 'crawler/checked.png' %}"/>
             </button>
@@ -74,7 +74,7 @@ button, input[type="submit"], input[type="reset"] {
 
             {% else %}
 
-           <a href="{% url 'kontakt_update' %}?id={{ p.id }}">
+           <a href="{% url 'contact_update' %}?id={{ employer.id }}">
             <button type='submit' value='folder1' class='' name='kontakt1'>&nbsp;&nbsp;&nbsp;<img
                     src="{% static 'crawler/no.png' %}"/>
             </button>
@@ -84,16 +84,16 @@ button, input[type="submit"], input[type="reset"] {
         </td>
         <td>
 
-            {% if p.folder == 1 %}
+            {% if employer.folder == 1 %}
             {% load staticfiles %}
-            <a href="{% url 'folder_update' %}?id={{ p.id }}">
+            <a href="{% url 'folder_update' %}?id={{ employer.id }}">
             <button type='submit' value='folder1' class='' name='folder1'><img
                     src="{% static 'crawler/folder-green-unlocked-icon.png' %}"/>
             </button>
             </a>
 
             {% else %}
-            <a href="{% url 'folder_update' %}?id={{ p.id}} ">
+            <a href="{% url 'folder_update' %}?id={{ employer.id}} ">
             <button type='submit' class='unstyled-button' name='folder2'><img
                     src="{% static 'crawler/folder-red-locked-icon.png' %}">
             </button>
@@ -106,20 +106,7 @@ button, input[type="submit"], input[type="reset"] {
     </tbody>
 </table>
 
-{% if is_paginated %}
-  <nav aria-label="Page navigation conatiner"></nav>
-  <ul class="pagination justify-content-center">
-    {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-    {% endif %}
-  </ul>
-  </nav>
-</div>
-{% endif %}
 
 </body>
 </html>
