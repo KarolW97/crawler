@@ -8,5 +8,5 @@ path('folder_update', views.folder_update, name='folder_update'),
 path('contact_update',views.contact_update,name='contact_update'),
 
 
-    path('', views.post_list, name='html/index.html'),]
+    path('', views.post_list, name='CrawlerDjango/index.html'),]
 

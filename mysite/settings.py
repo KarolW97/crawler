@@ -87,8 +87,7 @@ DATABASES = {
     'HOST': os.environ['HOST'],
     'PORT':'3306'
   }
- }
-
+  }
 
 
 
