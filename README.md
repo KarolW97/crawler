@@ -1,6 +1,7 @@
 # DjangoCrawler 
 
-Crawler is a simple application for scraping and displaying specific results of the pracuj.pl.
+Crawler's a simple application for scraping and displaying specific results of the pracuj.pl.
+Script retrieves data from pracuj.pl once a day, adds them into the database, then they're displayed on the page as a table.
 
 ##Environment variables
 
@@ -24,8 +25,9 @@ pip install -r requirements.txt
 manage.py runserver 0.0.0.0:8000
 ```
 
+or
 
- 
+```bash
+docker-compose up -d 
+```
 
-
-## License
