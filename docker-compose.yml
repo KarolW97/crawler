@@ -5,7 +5,7 @@ services:
     build: . # Current directory!
     command: "python3 manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/code
+      - .:/src/app
     ports:
       - "8000:8000"
     environment:
