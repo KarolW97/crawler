@@ -14,7 +14,7 @@ variables:
   containerRegistry: 'dmcontainerregistry.azurecr.io'
   applicationName: 'CrawlerDjango'
   imageRepository: '<image_name>'
-  contextPath: '$(Build.SourcesDirectory)/<path>/'
+  contextPath: '$(Build.SourcesDirectory)/crawler/web/'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.SourceVersion)'
 
