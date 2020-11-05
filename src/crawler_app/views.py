@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import generic
-from src.app.models import Pracodawcy
+from crawler_app.models import Pracodawcy
 
 
 def folder_update(request):
@@ -12,12 +12,12 @@ def folder_update(request):
         else:
             obj.folder = 0
         obj.save()
-    return redirect("src/app/templates/CrawlerDjango/index.html")
+    return redirect(post_list)
 
 
 def post_list(request):
     pracodawcy_list = Pracodawcy.objects.all().order_by('-data_dodania')
-    return render(request, 'src/app/templates/CrawlerDjango/index.html', {'pracodawcy': pracodawcy_list})
+    return render(request, 'index.html', {'pracodawcy': pracodawcy_list})
 
 
 def contact_update(request):
@@ -29,7 +29,7 @@ def contact_update(request):
         else:
             obj.kontakt = 0
         obj.save()
-    return redirect("src/app/templates/CrawlerDjango/index.html")
+    return redirect(post_list)
 
 class PostDetail(generic.DetailView):
     model = Pracodawcy

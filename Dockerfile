@@ -13,7 +13,7 @@ ENV	DB_NAME=
 ENV SECRET_KEY=
 
 
-VOLUME [ "/app/static" ]
+VOLUME [ "/crawler_app/static/" ]
 
 EXPOSE 8000
 

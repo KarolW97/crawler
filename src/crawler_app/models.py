@@ -11,4 +11,4 @@ class Pracodawcy(models.Model):
     folder = models.IntegerField()
 
     class Meta:
-        db_table = "crawler_pracodawcy"
+        db_table = "pracodawcy"

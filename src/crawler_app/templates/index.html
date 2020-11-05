@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'src/app/static/crawler/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -48,7 +48,7 @@
 
         <a href="{{employer.link}}">
             <button type='submit' value='link' class='' name='link'><img
-                    src="{% static 'src/app/static/crawler/linkpurple.png' %}"/>
+                    src="{% static 'linkpurple.png' %}"/>
             </button>
             </a>
 
@@ -61,7 +61,7 @@
 
             <a href="{% url 'contact_update' %}?id={{ employer.id }}">
             <button type='submit' value='folder1' class='' name='kontakt1'>&nbsp;&nbsp;&nbsp;<img
-                    src="{% static 'src/app/static/crawler/checked.png' %}"/>
+                    src="{% static '/checked.png' %}"/>
             </button>
 
 
@@ -71,7 +71,7 @@
 
            <a href="{% url 'contact_update' %}?id={{ employer.id }}">
             <button type='submit' value='folder1' class='' name='kontakt1'>&nbsp;&nbsp;&nbsp;<img
-                    src="{% static 'src/app/static/crawler/no.png' %}"/>
+                    src="{% static 'no.png' %}"/>
             </button>
              </a>
             {% endif %}
@@ -83,14 +83,14 @@
             {% load staticfiles %}
             <a href="{% url 'folder_update' %}?id={{ employer.id }}">
             <button type='submit' value='folder1' class='' name='folder1'><img
-                    src="{% static 'src/app/static/crawler/folder-green-unlocked-icon.png' %}"/>
+                    src="{% static 'folder-green-unlocked-icon.png' %}"/>
             </button>
             </a>
 
             {% else %}
             <a href="{% url 'folder_update' %}?id={{ employer.id}} ">
             <button type='submit' class='unstyled-button' name='folder2'><img
-                    src="{% static 'src/app/static/crawler/folder-red-locked-icon.png' %}">
+                    src="{% static 'folder-red-locked-icon.png' %}">
             </button>
             </a>
             {% endif %}
