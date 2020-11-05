@@ -1,4 +1,4 @@
-FROM python:3.8-alpine as base
+FROM dmcontainerregistry.azurecr.io/baseimages/python-alpine:db32737b40f3129a9d0e8f926161ce7bc1ea2007
 RUN mkdir -p /app
 WORKDIR /app
 COPY /src .
@@ -12,7 +12,6 @@ ENV	DB_PASS=
 ENV	DB_NAME=
 ENV SECRET_KEY=
 
-RUN python manage.py collectstatic --noinput
 
 VOLUME [ "/app/static" ]
 

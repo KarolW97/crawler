@@ -3,9 +3,10 @@
 import os
 import sys
 
+sys.path.append("src/app")
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crawler.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
