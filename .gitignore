@@ -24,10 +24,18 @@ media
 .idea/**/libraries
 ../.idea
 *.iws /out/
-
+.idea/
 # Python #
 *.py[cod]
 *$py.class
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+.idea/
+app/app.iml
+*.iml
 
 # Distribution / packaging
 .Python build/
@@ -84,6 +92,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv/*
 
 # mkdocs documentation
 /site
