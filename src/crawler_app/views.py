@@ -14,11 +14,9 @@ def folder_update(request):
         obj.save()
     return redirect(post_list)
 
-
 def post_list(request):
     pracodawcy_list = Pracodawcy.objects.all().order_by('-data_dodania')
     return render(request, 'index.html', {'pracodawcy': pracodawcy_list})
-
 
 def contact_update(request):
     if request.GET.get('id'):

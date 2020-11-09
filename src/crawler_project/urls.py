@@ -1,11 +1,8 @@
-from django.urls import path
-
-from crawler_app import views
+from django.contrib import admin
+from django.urls import path,include
 
 app_name = 'crawler_app'
 
 urlpatterns = [
-    path('folder_update', views.folder_update, name='folder_update'),
-    path('contact_update', views.contact_update, name='contact_update'),
-
-    path('', views.post_list, name='src/crawler_app/templates/CrawlerDjango/index.html'), ]
+    path('',include('crawler_app.urls')),
+]
