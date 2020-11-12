@@ -1,4 +1,3 @@
-
 """
 Django settings for mysite crawler_project.
 
@@ -21,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ['ualv7f&q52%b!q6!0pv*7wexv0sv*qv6=9nt=mjen28ob6pt4('],
+SECRET_KEY = os.environ["CRAWLER_SECRET_KEY"],
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ["CRAWLER_ALLOWED_HOSTS"]
 
 # Application definition
 
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,38 +77,35 @@ WSGI_APPLICATION = 'crawler_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'crawler',
-    'USER': 'root',
-    'PASSWORD': '',
-    'HOST': 'localhost',
-    'PORT':'3306'
-  }
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ["CRAWLER_DB_NAME"],
+        'USER': os.environ["CRAWLER_DB_USER"],
+        'PASSWORD': os.environ["CRAWLER_DB_PASS"],
+        'HOST': os.environ["CRAWLER_DB_HOST"],
+        'PORT': os.environ["CRAWLER_DB_PORT"]
+    }
+}
 
-
-
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-{
-    'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-},
-{
-    'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-},
-{
-    'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-},
-{
-    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-},
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -130,4 +125,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-

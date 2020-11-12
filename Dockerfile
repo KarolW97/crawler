@@ -6,11 +6,12 @@ COPY /src .
 RUN pip install -r requirements.txt
 
 
-ENV	DB_SERV=
-ENV	DB_USER=
-ENV	DB_PASS=
-ENV	DB_NAME=
-ENV SECRET_KEY=
+
+ENV CRAWLER_DB_PASS =
+ENV	CRAWLER_DB_USER =
+ENV	CRAWLER_DB_NAME =
+ENV CRAWLER_DB_HOST =
+ENV CRAWLER_DB_PORT =
 
 
 VOLUME [ "/crawler_app/static/" ]

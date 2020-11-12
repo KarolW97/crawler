@@ -7,6 +7,7 @@ path = 'src/'
 if path not in sys.path:
     sys.path.append(path)
 
+
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crawler_project.settings')
     try:
