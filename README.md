@@ -7,16 +7,21 @@ Script retrieves data from pracuj.pl once a day, adds them into the database, th
 
 ##### MySQL database related variables
 
-`DB_SERV` 
+`ENV CRAWLER_DB_HOST` 
 Database host  
-`DB_USER` 
-Username used to authenticate application in database  
-`DB_PASS`
-Password for database user  
-`DB_NAME` 
-Name of database
-## Build and Setup
 
+`ENV CRAWLER_DB_USER` 
+Username used to authenticate application in database  
+
+`ENV CRAWLER_DB_PASS`
+Password for database user  
+
+`ENV CRAWLER_DB_NAME` 
+Name of database
+
+`ENV CRAWLER_DB_PORT`
+Database port
+## Build and Setup
 
 
 ```bash
