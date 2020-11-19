@@ -1,17 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from crawler_app.models import Pracodawcy
+from crawler_app.helpers import folder_function
+from crawler_app.helpers import contact_function
 
 
 def folder_update(request):
-    if request.GET.get('id'):
-        i = request.GET['id']
-        obj = Pracodawcy.objects.get(pk=i)
-        if obj.folder == 0:
-            obj.folder = 1
-        else:
-            obj.folder = 0
-        obj.save()
+    folder_function(request);
     return redirect(post_list)
 
 
@@ -21,17 +16,5 @@ def post_list(request):
 
 
 def contact_update(request):
-    if request.GET.get('id'):
-        i = request.GET['id']
-        obj = Pracodawcy.objects.get(pk=i)
-        if obj.kontakt == 0:
-            obj.kontakt = 1
-        else:
-            obj.kontakt = 0
-        obj.save()
+    contact_function(request)
     return redirect(post_list)
-
-
-class PostDetail(generic.DetailView):
-    model = Pracodawcy
-    template_name = 'post_detail.html'

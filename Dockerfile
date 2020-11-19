@@ -1,11 +1,12 @@
-FROM dmcontainerregistry.azurecr.io/baseimages/python-alpine:db32737b40f3129a9d0e8f926161ce7bc1ea2007
+FROM dmcontainerregistry.azurecr.io/baseimages/python-alpine
 RUN mkdir -p /app
 WORKDIR /app
 COPY /src .
 
 RUN pip install -r requirements.txt
 
-
+ENV CRAWLER_SECRET_KEY =
+ENV CRAWLER_ALLOWED_HOSTS =
 
 ENV CRAWLER_DB_PASS =
 ENV	CRAWLER_DB_USER =
