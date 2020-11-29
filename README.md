@@ -3,7 +3,7 @@
 Crawler's a simple application for scraping and displaying specific results of the pracuj.pl.
 Script retrieves data from pracuj.pl once a day, adds them into the database, then they're displayed on the page as a table.
 
-##Environment variables
+## Environment variables
 
 ##### MySQL database related variables
 
