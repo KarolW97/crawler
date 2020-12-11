@@ -2,7 +2,6 @@ beautifulsoup4==4.8.1
 codegen==1.0
 django-bootstrap4==1.1.0
 django-crispy-forms==1.8.1
-django-tables2==2.2.1
 patterns==0.3
 pytz==2019.3
 soupsieve==1.9.5

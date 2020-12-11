@@ -1,12 +1,12 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import generic
 from crawler_app.models import Pracodawcy
-from crawler_app.helpers import folder_function
-from crawler_app.helpers import contact_function
+from crawler_app.helpers import object_function
 
 
-def folder_update(request):
-    folder_function(request);
+def folder_update(request,pk):
+    object_function(request,"folder",pk)
     return redirect(post_list)
 
 
@@ -15,6 +15,7 @@ def post_list(request):
     return render(request, 'index.html', {'pracodawcy': pracodawcy_list})
 
 
-def contact_update(request):
-    contact_function(request)
+def contact_update(request,pk):
+    object_function(request,"kontakt",pk)
     return redirect(post_list)
+
