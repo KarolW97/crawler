@@ -35,7 +35,7 @@ with open('nowi_pracodawcy.json') as infile, open('nowi_pracodawcy2.json', 'w') 
 
 ###wrzucanie do DB####
 
-mydb = pymysql.connect(host=os.getenv("DB_SERV"), user=os.getenv("DB_USER"), passwd=os.getenv("DB_PASS"), db=os.getenv("DB_NAME"))
+mydb = pymysql.connect(host='localhost', user='root', passwd='', db='crawler')
 
 cursor = mydb.cursor()
 
